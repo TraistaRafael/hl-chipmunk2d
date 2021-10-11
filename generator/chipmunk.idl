@@ -1,0 +1,38 @@
+typedef cpFloat float;
+
+interface cpVect
+{
+	void cpVect();
+    attribute cpFloat x;
+	attribute cpFloat y;
+};
+
+interface cpBB
+{
+	void cpVect();
+    attribute cpFloat l;
+	attribute cpFloat b;
+	attribute cpFloat r;
+	attribute cpFloat t;
+};
+
+interface Chipmunk2D 
+{
+	[Static] cpFloat cpMomentForCircle(cpFloat m, cpFloat r1, cpFloat r2, [Ref] cpVect offset);
+
+	[Static] cpFloat cpAreaForCircle(cpFloat r1, cpFloat r2);
+	
+	[Static] cpFloat cpMomentForSegment(cpFloat m, [Ref] cpVect a, [Ref] cpVect b, cpFloat radius);
+
+	[Static] cpFloat cpAreaForSegment([Ref] cpVect a, [Ref] cpVect b, cpFloat radius);
+
+	[Static] cpFloat cpMomentForPoly(cpFloat m, int count, [Const] cpVect verts, cpVect offset, cpFloat radius);
+
+	[Static] cpFloat cpAreaForPoly([Const] int count, [Const] cpVect verts, cpFloat radius);
+
+	[Static] cpVect cpCentroidForPoly([Const] int count, [Const] cpVect verts);
+
+	[Static] cpFloat cpMomentForBox(cpFloat m, cpFloat width, cpFloat height);
+
+	[Static] cpFloat cpMomentForBox2(cpFloat m, cpBB box);
+};
