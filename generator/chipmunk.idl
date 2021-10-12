@@ -9,7 +9,7 @@ interface cpVect
 
 interface cpBB
 {
-	void cpVect();
+	void cpBB();
     attribute cpFloat l;
 	attribute cpFloat b;
 	attribute cpFloat r;
@@ -26,13 +26,13 @@ interface Chipmunk2D
 
 	[Static] cpFloat cpAreaForSegment([Ref] cpVect a, [Ref] cpVect b, cpFloat radius);
 
-	[Static] cpFloat cpMomentForPoly(cpFloat m, int count, [Const] cpVect verts, cpVect offset, cpFloat radius);
+	[Static] cpFloat cpMomentForPoly([Ref] cpFloat m, int count, [Const] cpVect[] verts, [Ref] cpVect offset, cpFloat radius);
 
 	[Static] cpFloat cpAreaForPoly([Const] int count, [Const] cpVect verts, cpFloat radius);
 
-	[Static] cpVect cpCentroidForPoly([Const] int count, [Const] cpVect verts);
+	//[Static] cpVect cpCentroidForPoly([Const] int count, [Const] cpVect[] verts); // TODO this must be cpVect
 
-	[Static] cpFloat cpMomentForBox(cpFloat m, cpFloat width, cpFloat height);
+	// [Static] cpFloat cpMomentForBox(cpFloat m, cpFloat width, cpFloat height);
 
-	[Static] cpFloat cpMomentForBox2(cpFloat m, cpBB box);
+	// [Static] cpFloat cpMomentForBox2(cpFloat m, cpBB box);
 };
